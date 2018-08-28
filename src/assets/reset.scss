@@ -1,0 +1,111 @@
+blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul {margin:0;padding:0}  
+h1,h2,h3,h4,h5,h6 {font-size:100%}  
+address,cite,dfn,em,var {font-style:normal}  
+code,kbd,pre,samp {font-family:courier new,courier,monospace}  
+small {font-size:12px}  
+ol,ul {list-style:none}  
+a {text-decoration:none}  
+a:hover {text-decoration:none}  
+sup {vertical-align:text-top}  
+sub {vertical-align:text-bottom}  
+legend {color:#000}  
+fieldset,img {border:0}  
+button,input,select,textarea {font-size:100%}  
+table {border-collapse:collapse;border-spacing:0}  
+*:active{text-decoration: none;}
+.tap{
+    transition: all 100ms linear;
+}
+.tap-hasbg:active {
+	opacity: 0.7!important;
+	transition: all 100ms linear;
+}
+.tap:active {
+	opacity: 0.7!important;
+	transform: scale(0.95)!important;
+	transition: all 100ms linear;
+}
+.flex{
+    display: flex;
+}
+.flex-center{
+    display: flex;
+    justify-content: center;
+}
+.flex-middle{
+    display: flex;
+    align-items: center;
+}
+.flex-end{
+    display: flex;
+    justify-content: flex-end;
+}
+.flex-between{
+    display: flex;
+    justify-content: space-between;
+}
+.flex-content{
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex-column{
+    display: flex;
+    flex-direction:column;
+}
+.flex1{
+    flex:1;
+}
+/*扩展点击区域*/
+.extr-click{
+  position: relative;
+}
+  
+.extr-click::after{
+  content: "";
+  position: absolute;
+  left: -20rpx;
+  top: -20rpx;
+  right: -20rpx;
+  bottom: -20rpx;
+}
+
+.line-clamp3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  .line-clamp2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  .line-clamp1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  /*图片懒加载*/
+  img[lazy=loading] {
+    background:url('../assets/pre-load.png') no-repeat center/50% auto #d0d0d0;
+  }
+  img[lazy=error] {
+    background:url('../assets/img-error.png') no-repeat center/50% auto #d0d0d0;
+  }
+
+  /*pageLoading*/
+.loader {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    background: url('../assets/page-loading.svg') no-repeat center/100% auto;
+}
+ 

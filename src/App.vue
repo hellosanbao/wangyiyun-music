@@ -1,23 +1,26 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
+    <AudioPlay v-if="songMsg"/>
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
+import AudioPlay from '@/component/common/AudioPlay'
 export default {
-  name: 'App'
+  name: 'App',
+  computed:{
+    ...mapState(['songMsg'])
+  },
+  components:{
+    AudioPlay
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+html{
+  background: #fff;
 }
 </style>
