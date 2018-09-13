@@ -12,6 +12,7 @@ legend {color:#000}
 fieldset,img {border:0}  
 button,input,select,textarea {font-size:100%}  
 table {border-collapse:collapse;border-spacing:0}  
+input{outline: none;appearance:none;}
 *:active{text-decoration: none;}
 .tap{
     transition: all 100ms linear;
@@ -63,10 +64,10 @@ table {border-collapse:collapse;border-spacing:0}
 .extr-click::after{
   content: "";
   position: absolute;
-  left: -20rpx;
-  top: -20rpx;
-  right: -20rpx;
-  bottom: -20rpx;
+  left: -20px;
+  top: -20px;
+  right: -20px;
+  bottom: -20px;
 }
 
 .line-clamp3 {

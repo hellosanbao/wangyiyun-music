@@ -2,6 +2,9 @@
   <div class="mian-content">
     <div class="loader" v-if="!showContent"></div>
     <div v-if="showContent">
+      <router-link to="/search">
+        <Search/>
+      </router-link>
       <Banner v-if="banners.length>0" :banners="banners"/>
       <navBar />
       <div class="song-group">
@@ -25,6 +28,8 @@
 </template>
 
 <script>
+import { setLocal } from '@/utils'
+import Search from '@/component/home/search'
 import Banner from '@/component/home/banner'
 import navBar from '@/component/home/navBar'
 import AblumList from '@/component/home/ablumList'
@@ -36,6 +41,7 @@ import BottomLoading from '@/component/common/bottomLoading'
 export default {
   name: 'Home',
   components:{
+    Search,
     Banner,
     navBar,
     AblumList,
@@ -66,14 +72,16 @@ export default {
         this.$http.get('/personalized/djprogram'),
         this.$http.get('/personalized/mv'),
         this.$http.get('/top/artists?offset=0&limit=4'),
+        this.$http.get('/search/hot')
       ])
-      .then(this.$http.spread( (banner, tjgdList,djprogram,mv,rmgs) => {
+      .then(this.$http.spread( (banner, tjgdList,djprogram,mv,rmgs,hotSearch) => {
         this.showContent = true
         this.getbannerResult(banner)
         this.getTjgdListResult(tjgdList)
         this.getDjprogram(djprogram)
         this.getMvs(mv)
         this.getRmgs(rmgs)
+        this.getHotSearch(hotSearch)
       }))
     },
     //获取banner成功回调
@@ -95,7 +103,10 @@ export default {
     //热门歌手
     getRmgs(res){
       this.rmgsList = res.data.artists
-      console.log(this.rmgsList)
+    },
+    //热门搜索
+    getHotSearch(res){
+      setLocal('hotSearch',res.data.result.hots)
     }
   }
 }

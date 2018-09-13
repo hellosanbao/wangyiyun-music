@@ -27,7 +27,7 @@
                 <div class="after" :style="{backgroundImage:`url(${detail.coverImgUrl})`}"></div>
             </div>
             <div class="songlist">
-                <SongList :songList="songList" :collect="detail.subscribedCount"/>
+                <SongList :songList="songList" :audioPlay="audioPlay" :curSongIndex="curSongIndex" :isPlay="isPlay" :collect="detail.subscribedCount"/>
             </div>
         </div>
     </div>
@@ -37,6 +37,7 @@
 import SongList from '@/component/common/songList'
 export default {
   name: "GdList",
+  props:['audioPlay','curSongIndex','isPlay'],
   data() {
     return {
       showContent:false,
@@ -105,8 +106,8 @@ export default {
             left: 50%;
             top:50%;
             transform: translate(-50%,-50%);
-            width: 400%;
-            height: 400%;
+            width: 200%;
+            height: 200%;
             background:center/cover;
             filter:blur(10px);
         }

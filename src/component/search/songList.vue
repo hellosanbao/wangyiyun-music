@@ -1,19 +1,9 @@
 <template>
     <div class="list-content">
-        <div class="list-head flex-between">
-            <div class="play-content flex-middle">
-                <i class="iconfont icon-bofang"></i>
-                <div class="txt">播放全部<span>(共{{songList.length}}首)</span></div>
-            </div>
-            <div class="save-content flex-middle">
-                <i class="iconfont icon-jia"></i>
-                <div class="txt">收藏（{{collect}}）</div>
-            </div>
-        </div>
         <div class="list-body">
-            <div class="item flex-between" v-for="(item,index) in songList" @click="play(item,songList,index)">
-                <div :class="['tip','iconfont',{'cur':(curSongIndex==index)}]">{{(curSongIndex==index)?'&#xe63d;':(index+1)}}</div>
-                <div class="song flex1 flex-middle flex-center;">
+            <div class="item flex-between tap" v-for="(item,index) in songList" @click="play(item,songList,index)">
+                <!-- <div :class="['tip','iconfont',{'cur':(curSongIndex==index)}]">{{(curSongIndex==index)?'&#xe63d;':(index+1)}}</div> -->
+                <div :class="['song','flex1','flex-middle','flex-center',{'cur':(curSongIndex==index)}]">
                     <div class="song-info flex1">
                         <div class="name line-clamp1"> {{item.name}}</div>
                         <div class="auth flex-middle"><i class="iconfont icon-sq" v-if="item.isSq"></i><div class="line-clamp1">{{item.auth}}</div></div>
@@ -31,28 +21,7 @@
 import { mapState, mapActions, mapMutations } from 'vuex'
 export default {
     name:'SongList',
-    props:{
-        songList:{
-            type:Array,
-            required:true
-        },
-        collect:{
-            type:Number,
-            default:0
-        },
-        audioPlay:{
-            type:Function,
-            required:true
-        },
-        curSongIndex:{
-            type:Number,
-            default:-1
-        },
-        isPlay:{
-            type:Boolean,
-            default:false
-        }
-    },
+    props:['songList','audioPlay','curSongIndex'],
     methods:{
         play(item,songList,index){
             this.audioPlay(item,songList,index)
@@ -108,7 +77,11 @@ export default {
                     }
                 }
                 .song{
+                    padding-left: 20px;
                     border-bottom: 1px solid #f0f0f0;
+                    &.cur{
+                        background: #f0f0f0;
+                    }
                     .name{
                         font-size: 30px;
                     }
