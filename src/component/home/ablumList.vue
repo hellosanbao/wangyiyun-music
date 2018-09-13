@@ -2,7 +2,9 @@
     <div class="ablum-content">
         <router-link to="/GdList" class="title tap">{{title}} <i class="iconfont icon-next"></i></router-link>
         <div class="list flex-content flex-between">
-            <AblumItem :itemData="item" type="ablum" v-for="(item,index) in list" :key="index+'item'"/>
+            <router-link :to="`/GdDetail/${item.id}`" tag="div" v-for="(item,index) in list" :key="index+'item'">
+                <AblumItem :itemData="item" type="ablum" />
+            </router-link>
         </div>
     </div>
 </template>
