@@ -1,5 +1,5 @@
 import axios from 'axios'
-let domain = 'http://music.mendada.cn/api'
+let domain = 'http://music.mendada.cn:8001/api'
 export default  {
     ...axios,
     get(){

@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js",
-    "push":"yarn build && ssh ubuntu@132.232.3.185 rm -rf /home/ubuntu/github/wangyiyunmusic/dist && scp -r ./dist/ ubuntu@132.232.3.185:/home/ubuntu/github/wangyiyunmusic/"
+    "push": "npm run build && ssh ubuntu@132.232.3.185 rm -rf /home/ubuntu/github/wangyiyunmusic/dist && scp -r ./dist/ ubuntu@132.232.3.185:/home/ubuntu/github/wangyiyunmusic/"
   },
   "dependencies": {
     "axios": "^0.18.0",
